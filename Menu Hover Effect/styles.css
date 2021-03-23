@@ -128,15 +128,16 @@ nav {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   height: 100vh;
-  width: 50vw;
+  width: 100vw;
   z-index: 2;
+  position: absolute;
 }
 
 nav a {
   font-family: futura-pt, sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: clamp(40px, 4.2vw, 68px);
+  font-size: clamp(32px, 6.5vw, 68px);
   margin: 1em 0;
   -webkit-text-stroke: 1px white;
   color: transparent;
@@ -147,6 +148,13 @@ nav a {
 
 nav a:hover {
   color: white;
+}
+
+@media only screen and (min-width: 768px) {
+  nav {
+    width: 60vw;
+    position: relative;
+  }
 }
 
 .container {
@@ -163,25 +171,43 @@ nav a:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 50vw;
+  width: 100vw;
   height: 100vh;
-  position: relative;
+  position: absolute;
+  left: 200px;
 }
 
 .hover-photos img {
   position: absolute;
   visibility: hidden;
-  -webkit-transition: -webkit-clip-path .3s ease;
-  transition: -webkit-clip-path .3s ease;
-  transition: clip-path .3s ease;
-  transition: clip-path .3s ease, -webkit-clip-path .3s ease;
-  -webkit-clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
-          clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  -webkit-transition: -webkit-clip-path .5s ease;
+  transition: -webkit-clip-path .5s ease;
+  transition: clip-path .5s ease;
+  transition: clip-path .5s ease, -webkit-clip-path .5s ease;
+  -webkit-clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
+          clip-path: polygon(50% 0, 50% 0, 50% 100%, 50% 100%);
 }
 
 .hover-photos img.show {
+  -webkit-filter: brightness(50%);
+          filter: brightness(50%);
   visibility: visible;
-  -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-          clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  -webkit-clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+          clip-path: polygon(100% 0, 0 0, 0 100%, 100% 100%);
+}
+
+@media only screen and (min-width: 768px) {
+  .hover-photos img.show {
+    -webkit-filter: brightness(100%);
+            filter: brightness(100%);
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .hover-photos {
+    left: 0;
+    width: 40vw;
+    position: relative;
+  }
 }
 /*# sourceMappingURL=styles.css.map */
