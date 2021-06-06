@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400');
 
+@mixin clamp($property, $min-size, $scaler, $max-size, $min-size-left:false, $scaler-left:false, $max-size-left:false){
+  @if $min-size-left == false {
+    #{$property}:$max-size; 
+    #{$property}:#{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"}; 
+    #{$property}:clamp($min-size, $scaler, $max-size);
+  } @else if $min-size-left == 0 or $min-size-left == auto{
+    #{$property}:$max-size $min-size-left; 
+    #{$property}:#{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} $min-size-left;
+    #{$property}:clamp($min-size, $scaler, $max-size) $min-size-left;
+  } @else {
+    #{$property}:$max-size $min-size-left; 
+    #{$property}:#{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} #{"min(max(#{$min-size-left}, #{$scaler-left}), #{$max-size-left})"}; 
+    #{$property}:clamp($min-size, $scaler, $max-size) clamp($min-size-left, $scaler-left, $max-size-left);
+  }
+}
+
 *, *:before, *:after {
     box-sizing: border-box;
 }
@@ -37,56 +53,42 @@ h1, h2, h3, h4, h5 {
 
 h1 {
   margin-top: 0;
-  font-size: calc(max(40px, 4.2vw), 68px);
+//   font-size: calc(max(40px, 4.2vw), 68px);
+  @include clamp('font-size', 40px, 4.2vw, 68px);
   max-width: 24ch; // Line break after 15 characters
-  @supports (font-size: clamp(40px, 4.2vw, 68px)) {
-    font-size: clamp(40px, 4.2vw, 68px);
-  }
 }
 
 h2 {
-    font-size: calc(max(32px, 3.2vw), 50px);
+    // font-size: calc(max(32px, 3.2vw), 50px);
+    @include clamp('font-size', 32px, 3.2vw, 50px);
     max-width: 28ch;
-    @supports (font-size: clamp(32px, 3.2vw, 50px)) {
-        font-size: clamp(32px, 3.2vw, 50px);
-    }
 }
 
 h3 {
-    font-size: calc(max(28px, 2.4vw), 38px);
+    // font-size: calc(max(28px, 2.4vw), 38px);
+    @include clamp('font-size', 28px, 2.4vw, 38px);
     max-width: 32ch;
-    @supports (font-size: clamp(28px, 2.4vw, 38px)) {
-        font-size: clamp(28px, 2.4vw, 38px);
-    }
 }
 
 h4 {
-    font-size: calc(max(24px, 1.8vw), 28px);
+    // font-size: calc(max(24px, 1.8vw), 28px);
+    @include clamp('font-size', 24px, 1.8vw, 28px);
     max-width: 40ch;
-    @supports (font-size: clamp(24px, 1.8vw, 28px)) {
-        font-size: clamp(24px, 1.8vw, 28px);
-    }
 }
 
 h5 {
+    // font-size: calc(max(20px, 1.3vw), 22px);
+    @include clamp('font-size', 20px, 1.3vw, 22px);
     max-width: 42ch;
-    font-size: calc(max(20px, 1.3vw), 22px);
-    @supports (font-size: clamp(20px, 1.3vw, 22px)) {
-        font-size: clamp(20px, 1.3vw, 22px);
-    }
 }
 
 p {
-    font-size: calc(max(16px, 1vw), 18px);
+    // font-size: calc(max(16px, 1vw), 18px);
+    @include clamp('font-size', 16px, 1vw, 18px);
     max-width: 68ch;
-    @supports (font-size: clamp(16px, 1vw, 18px)) {
-        font-size: clamp(16px, 1vw, 18px);
-    }
 }
 
 small, .text_small {
-    font-size: calc(max(12px, 75vw), 14px);
-    @supports (font-size: clamp(12px, 75vw, 14px)) {
-        font-size: clamp(12px, 75vw, 14px);
-    }
-} 
+    // font-size: calc(max(12px, .75vw), 14px);
+    @include clamp('font-size', 12px, .75vw, 14px);
+}

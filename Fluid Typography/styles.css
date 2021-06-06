@@ -37,78 +37,50 @@ h1, h2, h3, h4, h5 {
 
 h1 {
   margin-top: 0;
-  font-size: calc(max(40px, 4.2vw), 68px);
+  font-size: 68px;
+  font-size: min(max(40px, 4.2vw), 68px);
+  font-size: clamp(40px, 4.2vw, 68px);
   max-width: 24ch;
 }
 
-@supports (font-size: clamp(40px, 4.2vw, 68px)) {
-  h1 {
-    font-size: clamp(40px, 4.2vw, 68px);
-  }
-}
-
 h2 {
-  font-size: calc(max(32px, 3.2vw), 50px);
+  font-size: 50px;
+  font-size: min(max(32px, 3.2vw), 50px);
+  font-size: clamp(32px, 3.2vw, 50px);
   max-width: 28ch;
 }
 
-@supports (font-size: clamp(32px, 3.2vw, 50px)) {
-  h2 {
-    font-size: clamp(32px, 3.2vw, 50px);
-  }
-}
-
 h3 {
-  font-size: calc(max(28px, 2.4vw), 38px);
+  font-size: 38px;
+  font-size: min(max(28px, 2.4vw), 38px);
+  font-size: clamp(28px, 2.4vw, 38px);
   max-width: 32ch;
 }
 
-@supports (font-size: clamp(28px, 2.4vw, 38px)) {
-  h3 {
-    font-size: clamp(28px, 2.4vw, 38px);
-  }
-}
-
 h4 {
-  font-size: calc(max(24px, 1.8vw), 28px);
+  font-size: 28px;
+  font-size: min(max(24px, 1.8vw), 28px);
+  font-size: clamp(24px, 1.8vw, 28px);
   max-width: 40ch;
 }
 
-@supports (font-size: clamp(24px, 1.8vw, 28px)) {
-  h4 {
-    font-size: clamp(24px, 1.8vw, 28px);
-  }
-}
-
 h5 {
+  font-size: 22px;
+  font-size: min(max(20px, 1.3vw), 22px);
+  font-size: clamp(20px, 1.3vw, 22px);
   max-width: 42ch;
-  font-size: calc(max(20px, 1.3vw), 22px);
-}
-
-@supports (font-size: clamp(20px, 1.3vw, 22px)) {
-  h5 {
-    font-size: clamp(20px, 1.3vw, 22px);
-  }
 }
 
 p {
-  font-size: calc(max(16px, 1vw), 18px);
+  font-size: 18px;
+  font-size: min(max(16px, 1vw), 18px);
+  font-size: clamp(16px, 1vw, 18px);
   max-width: 68ch;
 }
 
-@supports (font-size: clamp(16px, 1vw, 18px)) {
-  p {
-    font-size: clamp(16px, 1vw, 18px);
-  }
-}
-
 small, .text_small {
-  font-size: calc(max(12px, 75vw), 14px);
-}
-
-@supports (font-size: clamp(12px, 75vw, 14px)) {
-  small, .text_small {
-    font-size: clamp(12px, 75vw, 14px);
-  }
+  font-size: 14px;
+  font-size: min(max(12px, 0.75vw), 14px);
+  font-size: clamp(12px, 0.75vw, 14px);
 }
 /*# sourceMappingURL=styles.css.map */
