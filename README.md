@@ -1,10 +1,14 @@
 # scfernz-ui-component-library
 A collection of UI components so I don't have to keep writing stuff
 
-## Recommend running VSCode with Live Server, so far includes
+# Recommendations
+- Run with VSCode and Live Server/Live SASS Compiler
 
-- Fluid Typography using clamp() for setting up base styles - may refactor to use CSS Variables when I feel like it
+## Included Snippets
+
+- Fluid Typography using clamp() for setting up base styles
 - Menu hover effect with mousemove and clip-path reveal animations
+- Vanilla JS Accordion
 
 ## Things to add:
 
@@ -15,5 +19,5 @@ A collection of UI components so I don't have to keep writing stuff
 - Button and Menu Hover effects
 - Custom animations (keyframe stuff, parallax, etc.)
 - Filters, clip-path animations
-- Page transition animations
+- Page transition animations with Barba
 - Grids?
